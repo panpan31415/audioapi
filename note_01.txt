@@ -1,0 +1,27 @@
+Audio Context is just like a canvas in HTML document. 
+    var audioCtx = new window.AudioContext();
+
+Oscillator create a sound wave with frequency(20 - 20000 Hz)
+    var oscillator = audioCtx.createOscillator();
+    oscillator.frequency.value = 60;
+    oscillator.type = "sine"; // wave type: sine,circle,square,triangle
+
+Gain is sound amplifier (volume)
+    var gainNode = context.createGain();
+    gainNode.gain.value = 0.01;
+
+Filer
+    var filter = context.createBiquadFilter();
+    filter.type="lowpass";
+    filter.frequency.value=300;
+
+Connections 
+    lfo.connect(modulationGain)
+    modulationGain.connect(_gainNode.gain)
+
+Audio Routing Graph -- need to check again 
+
+
+Visualization 
+var analyser = audioCtx.createAnalyser();
+source.connect(analyser)
